@@ -137,11 +137,25 @@ function App() {
 
         {/* Generated Code */}
         <div className="mt-6">
-          <h3 className="font-semibold mb-2">Generated Code</h3>
-          <pre className="bg-black text-green-400 p-4 rounded-lg text-sm overflow-auto max-h-60">
-            {generatedCode}
-          </pre>
-        </div>
+  <h3 className="font-semibold mb-2">Editable Code</h3>
+
+  <textarea
+    value={generatedCode}
+    onChange={(e) => {
+      const newCode = e.target.value;
+
+      // Validate before allowing preview
+      if (validateComponents(newCode)) {
+        setGeneratedCode(newCode);
+      } else {
+        setExplanation(
+          "⚠ Invalid component detected. Only Card, Input, and Button allowed."
+        );
+      }
+    }}
+    className="w-full h-60 bg-black text-green-400 p-4 rounded-lg text-sm font-mono"
+  />
+</div>
 
         {/* Explanation */}
         <div className="mt-6">
