@@ -75,7 +75,7 @@ function App() {
 
     try {
       const response = await fetch(
-        "https://your-render-url.onrender.com/generate",
+        "https://https://ai-ui-generator-936u.onrender.com/generate",
         {
           method: "POST",
           headers: { "Content-Type": "application/json" },
